@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Sidebar from './components/sidebar-component/Sidebar'
+import Sidebar from './components/Sidebar'
 import TaskCard from './components/TaskCard'
 import TaskInput from './components/TaskInput'
 import Header from './components/Header'
@@ -57,20 +57,23 @@ const deleteTask = (id) =>{
 
 
   return (
-    <div className='App'>
+    <div className="min-h-screen bg-purple-500 relative">
+
+      <div className='flex'>
       <Sidebar/>
 {/*     
       <Routes>
        <Route path='/' element={<SettingPage />} />
       </Routes> */}
     
-      <div className='main-content'>
+      <div className='  m-20 px-16 container mx-auto px-4' >
       <Header tasks={tasks} />
       <TaskInput   addTask={addTask} />
       <TaskCard  tasks={tasks}  taskCompletionCheck={taskCompletionCheck}  deleteTask={deleteTask}/>
-      
-      
       </div>
+      </div>
+      
+  
       </div>
   )
 }
