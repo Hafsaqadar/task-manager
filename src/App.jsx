@@ -56,27 +56,25 @@ const deleteTask = (id) =>{
 
 
 
-  return (
-    <div className="min-h-screen bg-purple-500 relative">
+return (
+  <div className=":w-full min-h-screen bg-purple-500 relative">
+    {/* Flex container for Sidebar and Main Content */}
+    <div className="flex  w-full min-h-screen overflow-auto">
+      {/* Sidebar - Hidden on small screens */}
+      <Sidebar  className="hidden sm:block"/>
 
-      <div className='flex'>
-      <Sidebar/>
-{/*     
-      <Routes>
-       <Route path='/' element={<SettingPage />} />
-      </Routes> */}
-    
-      <div className='  m-20 px-16 container mx-auto px-4' >
-      <Header tasks={tasks} />
-      <TaskInput   addTask={addTask} />
-      <TaskCard  tasks={tasks}  taskCompletionCheck={taskCompletionCheck}  deleteTask={deleteTask}/>
+      {/* Main Content */}
+      <div className="flex-1 m-5 sm:m-10 lg:m-20 px-4 lg:px-16">
+        <Header tasks={tasks} />
+        <TaskInput addTask={addTask} />
+        <TaskCard
+          tasks={tasks}
+          taskCompletionCheck={taskCompletionCheck}
+          deleteTask={deleteTask}
+        />
       </div>
-      </div>
-      
-  
-      </div>
-  )
+    </div>
+  </div>
+);
 }
-
 export default App
-

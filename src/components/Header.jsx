@@ -20,12 +20,17 @@ function Header({tasks}) {
   return (
     <>
     <header>
+      <div className='text-white text-3xl p-10  mb-9 '>
+
+    
 
    
-     <h2>today main focus
+     <h2 className='text-lg font-bold md:text-4xl '>Today   Main Focus
       <br />
-      {mainTask || 'no task avaailable'}</h2>
-     
+      <span>
+      {mainTask || 'no task avaailable'}
+      </span></h2>
+      </div>
     </header>
 
 
