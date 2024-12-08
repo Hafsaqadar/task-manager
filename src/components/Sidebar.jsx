@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear, faListCheck, faCalendarCheck, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faListCheck, faCalendarCheck, faChevronRight, faHouse } from '@fortawesome/free-solid-svg-icons';
 
 
 const Sidebar = () => {
@@ -14,13 +15,20 @@ const Sidebar = () => {
      {open &&<h1 className="text-lg font-bold mb-8 w-28 sm:block hidden">Do-it</h1>}
       <span
        onClick={() => setOpen(!open)} className={`bg-purple-800 absolute right-3 top-9 cursor-pointer w-7
-      rounded-full px-2 text-xl text-white ${ open ? '' : 'sm:block' } `}
+      rounded-full px-2 text-xl text-white mr-4 ${ open ? '' : 'sm:block' } `}
       >
       <FontAwesomeIcon icon={faChevronRight} /> </span>
     
       {open &&<hr class="border-solid border-2 my-4 border-purple-300 w-1/3 sm:block hidden " />}
 
       <ul className="space-y-4">
+      <li className="text-gray-600 flex items-center py-6 text-3xl mt-11">
+        <Link to="/" className="flex items-center text-inherit">
+    <FontAwesomeIcon icon={faHouse} />{open && (<span className='ml-6 sm:block hidden'>Dashboard </span>)}
+    </Link>
+        </li>
+
+
         <li className=" text-3xl flex items-center mt-9  py-6">
         <FontAwesomeIcon icon={faListCheck} /> {open &&<span className="text-purple-500 ml-6 sm:block hidden">Today tasks</span>}
         </li>
@@ -28,7 +36,9 @@ const Sidebar = () => {
         <FontAwesomeIcon icon={faCalendarCheck} /> {open &&<span className=" ml-6 sm:block hidden text-2xl"> Scheduled tasks</span>}
         </li>
         <li className="text-gray-600 flex items-center py-6 text-3xl">
-        <FontAwesomeIcon icon={faGear} />{open && (<span className='ml-6 sm:block hidden'> Settings </span>)}
+        <Link to="/setting" className="flex items-center text-inherit">
+    <FontAwesomeIcon icon={faGear} />{open && (<span className='ml-6 sm:block hidden'>Settings </span>)}
+    </Link>
         </li>
       </ul>
     </div>
