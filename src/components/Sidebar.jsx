@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import Theme from './theme/Theme';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear, faListCheck, faCalendarCheck, faChevronRight, faHouse } from '@fortawesome/free-solid-svg-icons';
 
@@ -23,7 +25,7 @@ const Sidebar = () => {
 
       <ul className="space-y-4">
       <li className="text-gray-600 flex items-center py-6 text-3xl mt-11">
-        <Link to="/" className="flex items-center text-inherit">
+        <Link to="/HomePage" className="flex items-center text-inherit">
     <FontAwesomeIcon icon={faHouse} />{open && (<span className='ml-6 sm:block hidden'>Dashboard </span>)}
     </Link>
         </li>
@@ -41,6 +43,11 @@ const Sidebar = () => {
     </Link>
         </li>
       </ul>
+     
+     {/* theme toggle */}
+     <div className="mt-8 mr-2" >
+     
+      </div>
     </div>
   
   
