@@ -1,80 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import Sidebar from './components/Sidebar'
-import TaskCard from './components/TaskCard'
-import TaskInput from './components/TaskInput'
-import Header from './components/Header'
-import './app.css'
-// import { Route, Routes } from 'react-router-dom'
-// IMPORT PAGES
-// import SettingPage from './pages/settingPage'
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import PrivateRoute from './components/PrivateRoute';
+import Register from './components/Registration/Register';
+import HomePage from './HomePage';
+import Login from './components/Registration/Login';
 
-
-
-
-const App = () => {
-
-  const [tasks, setTasks] =useState(() => {
-    const savedTasks = localStorage.getItem('tasks');
-    return savedTasks ? JSON.parse(savedTasks) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
-
-
- // Add a new task
- const addTask = (taskName) => {
-  const newTask = {
-    id:Date.now(),
-    name: taskName,
-    completed:false,
-  }
-
-
-
-
-
-  setTasks([...tasks, newTask]); // Update the tasks array
-};
-
-
-const taskCompletionCheck=(taskId) =>{
-   setTasks((prevTasks) =>
-   prevTasks.map((task) =>
-      task.id === taskId ? { ...task, completed: !task.completed } : task
-    )
-    
-  );
-
-  console.log('task is completed')
-};
-
-const deleteTask = (id) =>{
-  setTasks((prevTasks)=>prevTasks.filter((task)=>task.id !==id));
-}
-
-
-
-return (
-  <div className=":w-full min-h-screen bg-purple-500 relative">
-    {/* Flex container for Sidebar and Main Content */}
-    <div className="flex  w-full min-h-screen overflow-auto">
-      {/* Sidebar - Hidden on small screens */}
-      <Sidebar  className="hidden sm:block"/>
-
-      {/* Main Content */}
-      <div className="flex-1 m-5 sm:m-10 lg:m-20 px-4 lg:px-16">
-        <Header tasks={tasks} />
-        <TaskInput addTask={addTask} />
-        <TaskCard
-          tasks={tasks}
-          taskCompletionCheck={taskCompletionCheck}
-          deleteTask={deleteTask}
+function App() {
+  return (
+    <AuthProvider>
+      <Routes>
+        {/* Redirect root path to register or homepage */}
+        <Route path="/" element={<Navigate to="/register" replace />} />
+        
+        {/* Public routes */}
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        
+        {/* Protected routes */}
+        <Route
+          path="/homepage/*"
+          element={
+            <PrivateRoute>
+              <HomePage />
+            </PrivateRoute>
+          }
         />
-      </div>
-    </div>
-  </div>
-);
+      </Routes>
+    </AuthProvider>
+  );
 }
-export default App
+
+export default App;
