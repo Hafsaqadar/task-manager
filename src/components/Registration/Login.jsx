@@ -25,8 +25,7 @@ function Login() {
       
       <div className='text-center mt-4 text-gray-600 '>
 
-        
-        <p>Dont have an account? <Link to='/signup' className='text-blue-700'>sign up</Link></p>
+        <p>Dont have an account? <Link to='/Register' className='text-blue-700'>sign up</Link></p>
 
       </div>
      
