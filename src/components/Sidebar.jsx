@@ -36,7 +36,7 @@ const Sidebar = () => {
         <FontAwesomeIcon icon={faCalendarCheck} /> {open &&<span className=" ml-6 sm:block hidden text-2xl"> Scheduled tasks</span>}
         </li>
         <li className="text-gray-600 flex items-center py-6 text-3xl">
-        <Link to="/setting" className="flex items-center text-inherit">
+        <Link to="/settingPage" className="flex items-center text-inherit">
     <FontAwesomeIcon icon={faGear} />{open && (<span className='ml-6 sm:block hidden'>Settings </span>)}
     </Link>
         </li>

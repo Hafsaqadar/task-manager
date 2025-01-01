@@ -5,6 +5,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Register from './components/Registration/Register';
 import HomePage from './HomePage';
 import Login from './components/Registration/Login';
+import SettingPage from './pages/SettingPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/settingPage" element={<SettingPage />} />
       </Routes>
     </AuthProvider>
   );
