@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import Theme from './theme/Theme';
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear, faListCheck, faCalendarCheck, faChevronRight, faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faListCheck, faCalendarCheck, faChevronRight, faHouse, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 
 const Sidebar = () => {
@@ -29,8 +29,6 @@ const Sidebar = () => {
     <FontAwesomeIcon icon={faHouse} />{open && (<span className='ml-6 sm:block hidden'>Dashboard </span>)}
     </Link>
         </li>
-
-
         <li className=" text-3xl flex items-center mt-9  py-6">
         <FontAwesomeIcon icon={faListCheck} /> {open &&<span className="text-purple-500 ml-6 sm:block hidden">Today tasks</span>}
         </li>
@@ -42,12 +40,14 @@ const Sidebar = () => {
     <FontAwesomeIcon icon={faGear} />{open && (<span className='ml-6 sm:block hidden'>Settings </span>)}
     </Link>
         </li>
+        <li className="text-gray-600 flex items-center py-6 text-3xl">
+        <Link to="/login" className="flex items-center text-inherit">
+    <FontAwesomeIcon icon={faArrowRightFromBracket} />{open && (<span className='ml-6 sm:block hidden'>Logout </span>)}
+    </Link>
+        </li>
       </ul>
      
-     {/* theme toggle */}
-     <div className="mt-8 mr-2" >
      
-      </div>
     </div>
   
   
