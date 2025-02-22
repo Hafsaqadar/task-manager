@@ -3,7 +3,7 @@ import Sidebar from './components/Sidebar'
 import TaskCard from './components/TaskCard'
 import TaskInput from './components/TaskInput'
 import Header from './components/Header'
-import './app.css'
+
 
 
 
