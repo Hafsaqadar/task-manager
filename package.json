@@ -12,7 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
 
-  "homepage": "https://Hafsaqadar.github.io/task-manager",
+  "homepage": "https://Hafsaqadar.github.io/task-manager/",
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
